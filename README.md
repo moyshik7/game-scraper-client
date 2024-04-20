@@ -1,28 +1,28 @@
 
 ## List of sites:
-- Amazon
-- ~~Steam~~
-- IsThereAnyDeal
-- Fanatical
-- ~~Humble Bundle~~
-- Bundle Stars
-- GOG.com
-- Green Man Gaming
-- GamersGate
-- Voidu
-- HRK Games
-- IndieGala
-- Raw Fury
-- ~~itch.io~~
-- Deals on PlayStation Store
-- Deals on Xbox Store
-- G2A
-- Kinguin
-- Gamivo
-- CDKeys
-- WildTangent
-- BundleBash
-- Nuuvem
-- DLGamer
-- GamersGoBlin
-- ~~Epic Games Store~~
+- [ ] Amazon
+- [x] ~~Steam~~
+- [ ] IsThereAnyDeal
+- [ ] Fanatical
+- [x] ~~Humble Bundle~~
+- [ ] Bundle Stars
+- [ ] GOG.com
+- [ ] Green Man Gaming
+- [ ] GamersGate
+- [ ] Voidu
+- [ ] HRK Games
+- [ ] IndieGala
+- [ ] Raw Fury
+- [x] ~~itch.io~~
+- [ ] Deals on PlayStation Store
+- [ ] Deals on Xbox Store
+- [ ] G2A
+- [ ] Kinguin
+- [ ] Gamivo
+- [ ] CDKeys
+- [ ] WildTangent
+- [ ] BundleBash
+- [ ] Nuuvem
+- [ ] DLGamer
+- [ ] GamersGoBlin
+- [x] ~~Epic Games Store~~
