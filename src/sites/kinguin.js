@@ -5,7 +5,7 @@ export const Kinguin = (query) => {
         if (!query) {
             reject("Query is required");
         }
-        fetch("https://www.kinguin.net/services/library/api/v1/products/search?store=kinguin&phrase=fallout&size=5&visible=1&sort=bestseller.total,DESC", {
+        fetch(`https://www.kinguin.net/services/library/api/v1/products/search?store=kinguin&phrase=${query}&size=5&visible=1&sort=bestseller.total,DESC`, {
             "headers": {
                 "accept": "application/json, text/plain, */*",
                 "accept-language": "en-US,en;q=0.9,bn;q=0.8",

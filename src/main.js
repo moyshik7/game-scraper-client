@@ -41,4 +41,4 @@ const SearchGame = (query) => {
     });
 }
 
-SearchGame("fantasy").then(console.log).catch(console.error)
+SearchGame("Farcry").then(console.log).catch(console.error)
