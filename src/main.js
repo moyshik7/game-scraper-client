@@ -1,6 +1,7 @@
 import { Epic } from "./sites/epicgames.js";
 import { HumbleBundle } from "./sites/humblebundle.js";
 import { ItchIO } from "./sites/itch.js";
+import { Kinguin } from "./sites/kinguin.js";
 import { Steam } from "./sites/steam.js";
 
 const SearchGame = (query) => {
@@ -27,6 +28,11 @@ const SearchGame = (query) => {
         }
 
         data = await Epic(query).catch(console.error)
+        if(data.length > 1){
+            result.push(data[0])
+        }
+
+        data = await Kinguin(query).catch(console.error)
         if(data.length > 1){
             result.push(data[0])
         }
