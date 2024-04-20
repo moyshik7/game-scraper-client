@@ -20,6 +20,11 @@ export const HumbleBundle = (query) => {
                         store: "Humble Bundle",
                     });
                 }));
+            })
+            .catch(err => {
+                console.log("HumbleBumble Error")
+                console.log(err)
+                resolve([])
             });
     });
 }

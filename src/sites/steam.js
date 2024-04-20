@@ -31,7 +31,12 @@ export const Steam = (query) => {
                         store: "Steam",
                     });
                 }));
-            });
+            })
+            .catch(err => {
+                console.log("Steam Error")
+                console.log(err)
+                resolve([])
+            })
     });
 }
 

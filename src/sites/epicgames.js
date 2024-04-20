@@ -6,23 +6,13 @@ export const Epic = (query) => {
             reject("Query is required");
         }
         fetch(`https://store.epicgames.com/graphql?operationName=searchStoreQuery&variables=%7B%22allowCountries%22:%22BD%22,%22category%22:%22games%2Fedition%2Fbase%7Cbundles%2Fgames%7Cgames%2Fedition%7Ceditors%7Caddons%7Cgames%2Fdemo%7Csoftware%2Fedition%2Fbase%7Cgames%2Fexperience%22,%22count%22:40,%22country%22:%22BD%22,%22keywords%22:%22${query}%22,%22locale%22:%22en-US%22,%22sortBy%22:%22relevancy,viewableDate%22,%22sortDir%22:%22DESC,DESC%22,%22tag%22:%22%22,%22withPrice%22:true%7D&extensions=%7B%22persistedQuery%22:%7B%22version%22:1,%22sha256Hash%22:%227d58e12d9dd8cb14c84a3ff18d360bf9f0caa96bf218f2c5fda68ba88d68a437%22%7D%7D`, {
-        "headers": {
-            "accept": "application/json, text/plain, */*",
-            "accept-language": "en-US,en;q=0.9,bn;q=0.8",
-            "priority": "u=1, i",
-            "sec-ch-ua": "\"Chromium\";v=\"124\", \"Google Chrome\";v=\"124\", \"Not-A.Brand\";v=\"99\"",
-            "sec-ch-ua-mobile": "?0",
-            "sec-ch-ua-platform": "\"Windows\"",
-            "sec-fetch-dest": "empty",
-            "sec-fetch-mode": "cors",
-            "sec-fetch-site": "same-origin",
-            "x-requested-with": "XMLHttpRequest"
-        },
-        "referrer": "https://store.epicgames.com/en-US/",
-        "referrerPolicy": "no-referrer-when-downgrade",
-        "body": null,
-        "method": "GET",
-        "credentials": "include"
+            "headers": {
+                "accept": "application/json, text/plain, */*",
+                "accept-language": "en-US,en;q=0.9,bn;q=0.8",
+                "priority": "u=1, i",
+            },
+            "referrer": "https://store.epicgames.com/en-US/",
+            "method": "GET",
         }).then((res) => res.json())
         .then(res => {
             //console.log(res.data.Catalog.searchStore.elements)
@@ -39,6 +29,11 @@ export const Epic = (query) => {
                 }
                 return result
             }))
+        })
+        .catch(err => {
+            console.log("EpicGames Error")
+            console.log(err)
+            resolve([])
         })
     });
 }

@@ -25,7 +25,11 @@ export const ItchIO = (query) => {
                 })
                 return resolve(result);
             })
-            .catch(reject);
+            .catch(err => {
+                console.log("itch.io Error")
+                console.log(err)
+                resolve([])
+            });
     });
 }
 

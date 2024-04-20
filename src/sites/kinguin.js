@@ -7,20 +7,10 @@ export const Kinguin = (query) => {
         }
         fetch(`https://www.kinguin.net/services/library/api/v1/products/search?store=kinguin&phrase=${query}&size=5&visible=1&sort=bestseller.total,DESC`, {
             "headers": {
-                "accept": "application/json, text/plain, */*",
-                "accept-language": "en-US,en;q=0.9,bn;q=0.8",
-                "cfipcountry": "BD",
+                "accept": "application/json",
                 "guest-user-id": "1pp95k9dd49g8g3nzybtvtv9lhjoh1",
                 "priority": "u=1, i",
-                "sec-ch-ua": "\"Chromium\";v=\"124\", \"Google Chrome\";v=\"124\", \"Not-A.Brand\";v=\"99\"",
-                "sec-ch-ua-mobile": "?0",
-                "sec-ch-ua-platform": "\"Windows\"",
-                "sec-fetch-dest": "empty",
-                "sec-fetch-mode": "cors",
-                "sec-fetch-site": "same-origin",
-                "cookie": "cf_clearance=3",
                 "Referer": "https://www.kinguin.net/",
-                "Referrer-Policy": "strict-origin"
             },
             "body": null,
             "method": "GET"
@@ -38,6 +28,11 @@ export const Kinguin = (query) => {
                     store: "Kinguin",
                 });
             }))
+        })
+        .catch(err => {
+            console.log("Kinguin Error")
+            console.log(err)
+            resolve([])
         })
     });
 }
