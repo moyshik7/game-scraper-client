@@ -17,7 +17,7 @@
 - [ ] Deals on PlayStation Store
 - [ ] Deals on Xbox Store
 - [ ] G2A
-- [x] Kinguin
+- [x] ~~Kinguin~~
 - [ ] Gamivo
 - [ ] CDKeys
 - [ ] WildTangent
