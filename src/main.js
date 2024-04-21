@@ -1,5 +1,6 @@
 import { Epic } from "./sites/epicgames.js";
 import { HumbleBundle } from "./sites/humblebundle.js";
+import { IndieGala } from "./sites/indiegala.js";
 import { ItchIO } from "./sites/itch.js";
 import { Kinguin } from "./sites/kinguin.js";
 import { Steam } from "./sites/steam.js";
@@ -33,6 +34,11 @@ const SearchGame = (query) => {
         }
 
         data = await Kinguin(query).catch(console.error)
+        if(data.length > 1){
+            result.push(data[0])
+        }
+
+        data = await IndieGala(query).catch(console.error)
         if(data.length > 1){
             result.push(data[0])
         }
