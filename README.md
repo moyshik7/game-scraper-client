@@ -6,7 +6,7 @@
 - [ ] Fanatical
 - [x] ~~Humble Bundle~~
 - [ ] Bundle Stars
-- [ ] GOG.com
+- [x] ~~GOG.com~~
 - [ ] Green Man Gaming
 - [ ] GamersGate
 - [ ] Voidu
