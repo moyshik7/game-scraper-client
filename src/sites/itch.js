@@ -2,6 +2,7 @@ import * as Cheerio from "cheerio";
 import fetch from "node-fetch";
 
 export const ItchIO = (query) => {
+    try {
     return new Promise((resolve, reject) => {
         if (!query) {
             reject("Query is required");
@@ -31,6 +32,9 @@ export const ItchIO = (query) => {
                 resolve([])
             });
     });
+    } catch (err){
+        console.log(err)
+    }
 }
 
 //ItchIO("fantasy").then(console.log).catch(console.error)

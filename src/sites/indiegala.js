@@ -2,6 +2,7 @@ import * as Cheerio from "cheerio";
 import fetch from "node-fetch";
 
 export const IndieGala = (query) => {
+    try {
     return new Promise((resolve, reject) => {
         if (!query) {
             reject("Query is required");
@@ -11,10 +12,6 @@ export const IndieGala = (query) => {
                 "accept": "application/json",
                 "accept-language": "en-US,en;",
                 "content-type": "application/json",
-                "priority": "u=1, i",
-                "sec-ch-ua": "\"Chromium\";v=\"124\", \"Google Chrome\";v=\"124\", \"Not-A.Brand\";v=\"99\"",
-                "sec-ch-ua-mobile": "?0",
-                "sec-ch-ua-platform": "\"Windows\"",
                 "Referer": "https://www.indiegala.com/store",
                 "Referrer-Policy": "strict-origin-when-cross-origin"
             },
@@ -23,6 +20,10 @@ export const IndieGala = (query) => {
             }),
             "method": "POST"
         }).then((res) => res.json()).then(data => {
+            //console.log(data)
+            if(typeof data.html !== "string" || data.html === ""){
+                return resolve([])
+            }
             const $ = Cheerio.load(data.html);
 
             const result = []
@@ -57,6 +58,9 @@ export const IndieGala = (query) => {
             return resolve(result)
         });
     });
+    } catch (err){
+        console.log(err)
+    }
 }
 
 //IndieGala("fantasy").then(console.log).catch(console.log)

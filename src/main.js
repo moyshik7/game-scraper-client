@@ -1,3 +1,5 @@
+import express from "express";
+
 import { Epic } from "./sites/epicgames.js";
 import { Gamivo } from "./sites/gamivo.js";
 import { HumbleBundle } from "./sites/humblebundle.js";
@@ -53,4 +55,26 @@ const SearchGame = (query) => {
     });
 }
 
-SearchGame("Farcry").then(console.log).catch(console.error)
+//SearchGame("Farcry").then(console.log).catch(console.error)
+
+
+const app = express();
+
+app.get("/", (req, res) => {
+    res.send("Working!");
+});
+app.get("/search/", (req, res) => {
+    if (!req.query.q) {
+        res.status(400).send("Query is required");
+    }
+    console.log(req.query.q)
+    SearchGame(req.query.q).then((data) => {
+        res.json(data);
+    }).catch((err) => { 
+        res.status(500).send(err);
+    });
+})
+
+app.listen(process.env.PORT || 3000, () => {
+    console.log("Server is online");
+})
