@@ -11,7 +11,7 @@
 - [ ] GamersGate
 - [ ] Voidu
 - [ ] HRK Games
-- [ ] IndieGala
+- [x] ~~IndieGala~~
 - [ ] Raw Fury
 - [x] ~~itch.io~~
 - [ ] Deals on PlayStation Store
