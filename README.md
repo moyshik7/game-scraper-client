@@ -18,7 +18,7 @@
 - [ ] Deals on Xbox Store
 - [ ] G2A
 - [x] ~~Kinguin~~
-- [x] Gamivo
+- [x] ~~Gamivo~~
 - [ ] CDKeys
 - [ ] WildTangent
 - [ ] BundleBash
