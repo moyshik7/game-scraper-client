@@ -1,4 +1,5 @@
 import { Epic } from "./sites/epicgames.js";
+import { Gamivo } from "./sites/gamivo.js";
 import { HumbleBundle } from "./sites/humblebundle.js";
 import { IndieGala } from "./sites/indiegala.js";
 import { ItchIO } from "./sites/itch.js";
@@ -39,6 +40,11 @@ const SearchGame = (query) => {
         }
 
         data = await IndieGala(query).catch(console.error)
+        if(data.length > 1){
+            result.push(data[0])
+        }
+
+        data = await Gamivo(query).catch(console.error)
         if(data.length > 1){
             result.push(data[0])
         }
