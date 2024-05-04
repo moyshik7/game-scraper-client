@@ -49,11 +49,6 @@ export const IndieGala = (query) => {
                     store: "IndieGala",
                 })
             })
-            .catch(err => {
-                console.log("IndieGala Error")
-                console.log(err)
-                resolve([])
-            });
 
             return resolve(result)
         });

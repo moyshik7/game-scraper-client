@@ -18,43 +18,84 @@ const SearchGame = (query) => {
         let data;
 
         data = await Steam(query).catch(console.error)
-        if(data.length > 1){
-            result.push(data[0])
+        if(data){
+            if(data.length >= 1){
+                result.push(data[0])
+            }
+            if(data.length >= 2){
+                result.push(data[1])
+            }
         }
+        
 
         data = await HumbleBundle(query).catch(console.error)
-        if(data.length > 1){
-            result.push(data[0])
+        if(data){
+            if(data.length >= 1){
+                result.push(data[0])
+            }
+            if(data.length >= 2){
+                result.push(data[1])
+            }
         }
 
         data = await ItchIO(query).catch(console.error)
-        if(data.length > 1){
-            result.push(data[0])
+        if(data){
+            if(data.length >= 1){
+                result.push(data[0])
+            }
+            if(data.length >= 2){
+                result.push(data[1])
+            }
         }
 
         data = await Epic(query).catch(console.error)
-        if(data.length > 1){
-            result.push(data[0])
+        if(data){
+            if(data.length >= 1){
+                result.push(data[0])
+            }
+            if(data.length >= 2){
+                result.push(data[1])
+            }
         }
 
         data = await Kinguin(query).catch(console.error)
-        if(data.length > 1){
-            result.push(data[0])
+        if(data){
+            if(data.length >= 1){
+                result.push(data[0])
+            }
+            if(data.length >= 2){
+                result.push(data[1])
+            }
         }
 
         data = await IndieGala(query).catch(console.error)
-        if(data.length > 1){
-            result.push(data[0])
+        if(data){
+            if(data.length >= 1){
+                result.push(data[0])
+            }
+            if(data.length >= 2){
+                result.push(data[1])
+            }
         }
 
         data = await Gamivo(query).catch(console.error)
-        if(data.length > 1){
-            result.push(data[0])
+        if(data){
+            if(data.length >= 1){
+                result.push(data[0])
+            }
+            if(data.length >= 2){
+                result.push(data[1])
+            }
         }
 
         data = await GoG(query).catch(console.error)
-        if(data.length > 1){
-            result.push(data[0])
+        if(data){
+            if(data.length >= 1){
+                result.push(data[0])
+            }
+            if(data.length >= 2){
+                result.push(data[1])
+            }
         }
 
         return resolve(result);
@@ -73,7 +114,7 @@ app.get("/search/", (req, res) => {
     if (!req.query.q) {
         res.status(400).send("Query is required");
     }
-    console.log(req.query.q)
+    //console.log(req.query.q)
     SearchGame(req.query.q).then((data) => {
         res.json(data);
     }).catch((err) => { 
@@ -81,6 +122,6 @@ app.get("/search/", (req, res) => {
     });
 })
 
-app.listen(process.env.PORT || 3000, () => {
+app.listen(process.env.PORT || 5000, () => {
     console.log("Server is online");
 })
