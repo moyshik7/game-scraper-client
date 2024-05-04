@@ -122,6 +122,6 @@ app.get("/search/", (req, res) => {
     });
 })
 
-app.listen(process.env.PORT || 5000, () => {
+app.listen(process.env.PORT || 80, () => { //443 https
     console.log("Server is online");
 })
