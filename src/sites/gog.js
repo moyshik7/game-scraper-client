@@ -1,43 +1,49 @@
 import fetch from "node-fetch";
 
 export const GoG = (query) => {
-    return new Promise((resolve, reject) => {
-        if (!query) {
-            reject("Query is required");
-        }
-        fetch(`https://catalog.gog.com/v1/catalog?limit=10&query=like%3A${query}&order=desc%3Ascore&productType=in%3Agame%2Cpack%2Cdlc%2Cextras&page=1&countryCode=US&locale=en-US&currencyCode=USD`, {
-            "headers": {
-                "accept": "application/json",
-                "accept-language": "en-US,en;",
-            },
-            "method": "GET"
-        })
-        .then((res) => res.json())
-        .then(data => {
-            //console.log(data?.products[0])
+  return new Promise((resolve, reject) => {
+    try{
+    if (!query) {
+      reject("Query is required");
+    }
+    fetch(
+      `https://catalog.gog.com/v1/catalog?limit=10&query=like%3A${query}&order=desc%3Ascore&productType=in%3Agame%2Cpack%2Cdlc%2Cextras&page=1&countryCode=US&locale=en-US&currencyCode=USD`,
+      {
+        headers: {
+          accept: "application/json",
+          "accept-language": "en-US,en;",
+        },
+        method: "GET",
+      }
+    )
+      .then((res) => res.json())
+      .then((data) => {
+        //console.log(data?.products[0])
 
-            const result = [];
-            data?.products.map((item) => {
-                result.push({
-                    name: item?.title || "N/A",
-                    price: item?.price?.finalMoney?.amount || 0,
-                    original: item?.price?.baseMoney?.amount || 0,
-                    image: item?.coverHorizontal || item?.coverVertical,
-                    offer: (item.price.final > item.price.base),
-                    platforms: item?.operatingSystems,
-                    link: item?.storeLink,
-                    store: "GoG",
-                });
-            })
-
-
-            return resolve(result)
+        const result = [];
+        data?.products.map((item) => {
+          result.push({
+            name: item?.title || "N/A",
+            price: item?.price?.finalMoney?.amount || 0,
+            original: item?.price?.baseMoney?.amount || 0,
+            image: item?.coverHorizontal || item?.coverVertical,
+            offer: item.price.final > item.price.base,
+            platforms: item?.operatingSystems,
+            link: item?.storeLink,
+            store: "GoG",
+          });
         });
-    });
-}
+
+        return resolve(result);
+      });
+    } catch (error) {
+      console.error(error);
+      return resolve([]);
+    }
+  });
+};
 
 //GoG("far cry").then(console.log).catch(console.error);
-
 
 /*
 RAW API DATA
