@@ -27,7 +27,7 @@ export const GoG = (query) => {
             price: item?.price?.finalMoney?.amount || 0,
             original: item?.price?.baseMoney?.amount || 0,
             image: item?.coverHorizontal || item?.coverVertical,
-            offer: item.price.final > item.price.base,
+            offer: item?.price?.final > item?.price?.base,
             platforms: item?.operatingSystems,
             link: item?.storeLink,
             store: "GoG",
