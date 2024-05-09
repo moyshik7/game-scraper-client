@@ -16,9 +16,13 @@ export const Kinguin = (query) => {
             "method": "GET"
         }).then((res) => res.json())
         .then(data => {
-            //console.log(data._embedded.products[0])
+
             return resolve(data._embedded.products.map((item) => {
-                const link = item?._links?.self?.href || item?._links?.product?.href
+                //console.log(item)
+                //console.log(item?._links)
+
+                const link = `https://www.kinguin.net/category/${item.externalId}/${item.attributes.urlKey}`
+                
                 return ({
                     name: item?.name || "N/A",
                     price: (item?.price?.lowestOffer || 100) / 100,

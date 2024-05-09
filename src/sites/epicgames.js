@@ -31,7 +31,6 @@ export const Epic = (query) => {
                     link: `https://www.epicgames.com/store/en-US/p/${item?.productSlug}`,
                     store: "Epic Games",
                 }
-                console.log(result)
                 return result
             }))
         })
