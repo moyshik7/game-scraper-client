@@ -15,8 +15,12 @@ export const Epic = (query) => {
             "method": "GET",
         }).then((res) => res.json())
         .then(res => {
+            const a = res.data.Catalog.searchStore.elements[0]
             //console.log(res.data.Catalog.searchStore.elements)
             return resolve(res.data.Catalog.searchStore.elements.map((item) => {
+                if(!item?.productSlug){
+                    return null
+                }
                 const result = {
                     name: item?.title || "N/A",
                     price: (item?.price?.totalPrice?.discountPrice || 100) / 100,
@@ -24,9 +28,10 @@ export const Epic = (query) => {
                     image: item?.keyImages[0]?.url || item?.keyImages[1]?.url || item?.keyImages[2]?.url || item?.keyImages[3]?.url,
                     offer: (item.price.totalPrice.discountPrice > 0),
                     platforms: [],
-                    link: `https://www.epicgames.com/store/en-US/p/${item?.urlSlug}`,
+                    link: `https://www.epicgames.com/store/en-US/p/${item?.productSlug}`,
                     store: "Epic Games",
                 }
+                console.log(result)
                 return result
             }))
         })
